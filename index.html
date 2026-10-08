@@ -1,0 +1,26 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="description" content="LiveEdit 第 11000 步：100 个视频编辑样例，源视频、编辑预测、目标 GT、预测路由与 GT mask 并集五栏对照。">
+  <title>LiveEdit · 11000 步定性结果</title>
+  <link rel="stylesheet" href="styles.css">
+  <script src="gallery.js" defer></script>
+</head>
+<body>
+  <header class="topbar"><a class="brand" href="./"><span class="brand-icon">L</span>LiveEdit<span class="brand-detail">视频编辑 · 定性结果</span></a><span class="checkpoint">CHECKPOINT / 11000</span></header>
+  <main>
+    <section class="hero"><div><span class="eyebrow">QUALITATIVE GALLERY</span><h1>看见编辑，<span>也看见保持。</span></h1><p>用同一段五栏视频，检查编辑是否完成、背景是否保留，以及预测路由与目标区域的差异。</p></div><div class="facts"><div><strong>100</strong><span>固定样例</span></div><div><strong>5</strong><span>并排视角</span></div><div><strong>50</strong><span>采样步数</span></div></div></section>
+    <section class="viewer" aria-labelledby="sample-title">
+      <div class="viewer-heading"><div><span id="sample-number" class="eyebrow">正在加载</span><h2 id="sample-title">11000 步评测结果</h2></div><div class="navigation"><button id="previous" title="上一个样例" aria-label="上一个样例">←</button><button id="next" title="下一个样例" aria-label="下一个样例">→</button></div></div>
+      <div class="panels"><span>源视频</span><span>编辑预测</span><span>目标 GT</span><span>预测路由</span><span>GT mask 并集</span></div>
+      <div class="video-wrap"><video id="main-video" controls playsinline preload="metadata" aria-label="五栏拼接对照视频"></video></div>
+      <div class="viewer-bottom"><p id="sample-meta"></p><a id="download-video" download>下载当前视频 ↗</a></div>
+      <div class="instruction"><span class="eyebrow">EDIT INSTRUCTION</span><p id="instruction"></p></div>
+    </section>
+    <section class="catalog" aria-labelledby="catalog-title"><div class="catalog-heading"><div><span class="eyebrow">EXPLORE THE RESULTS</span><h2 id="catalog-title">样例库 <span id="result-count"></span></h2></div><div class="filters"><label class="sr-only" for="category">任务类别</label><select id="category"><option value="all">全部任务</option></select><label class="sr-only" for="search">搜索样例</label><input id="search" type="search" placeholder="搜索指令或样例编号…"></div></div><div id="cards" class="cards"></div><div class="pagination"><button id="page-prev">上一页</button><span id="page-status"></span><button id="page-next">下一页</button></div></section>
+    <aside class="notes"><h3>阅读这些结果时</h3><p>预测路由显示的是 30 层 DiT、50 个去噪步的平均值，并不是某一层、某一步实际使用的 gate。全局任务的 GT mask 为全一；局部任务显示源与目标 mask 的并集。</p><p>这 100 例用于定性检查，部分样例与训练集有重叠，不作为独立验证集或最终泛化结论。结果固定于 11000 步权重，81 帧、16 FPS，预测路由参与融合。</p></aside>
+  </main>
+  <footer><span>LiveEdit / STEP 11000</span><span>源视频 · 编辑预测 · 目标 GT · 预测路由 · GT mask 并集</span></footer>
+</body>
+</html>
